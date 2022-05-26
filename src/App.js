@@ -1,9 +1,10 @@
+import Landing from "./pages/Landing";
 
 
 function App() {
   return (
     <div>
-     JOBHUSTLE
+      <Landing />
     </div>
   );
 }
