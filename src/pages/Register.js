@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FormRow, Logo } from "../components";
+import { FormRow } from "../components";
 import Wrapper from "../assets/wrappers/RegisterPage";
 
 const initialState = {
@@ -20,15 +20,21 @@ function Register() {
     e.preventDefault();
   };
 
+  const toggleMember = () => {
+    setValues({ ...values, isMember: !values.isMember})
+  }
+
   return (
     <Wrapper className="full-page">
       <form className="form" onSubmit={onSubmit}>
-        <FormRow
+        
+        <h3>{values.isMember ? 'Login' : 'Register'}</h3>
+       { !values.isMember && <FormRow
           type="text"
           name="name"
           value={values.name}
           handleChange={handleChange}
-        />
+        />}
 
         {/* Email Field */}
         <FormRow
@@ -48,6 +54,14 @@ function Register() {
         <button type="submit" className="btn btn-block">
           submit
         </button>
+
+        <p>
+          {values.isMember ? 'Not a member yet?' : 'Already a member?'}
+          <button type='button' onClick={toggleMember} className='member-btn'>
+            {values.isMember ? 'Register' : 'Login'}
+          </button>
+        </p>
+
       </form>
     </Wrapper>
   );
