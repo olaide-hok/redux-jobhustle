@@ -71,7 +71,7 @@ function Register() {
           handleChange={handleChange}
         />
         <button type="submit" className="btn btn-block" disabled={isLoading}>
-          submit
+          {isLoading ? 'loading...' : 'submit'}
         </button>
 
         <p>
