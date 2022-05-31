@@ -51,8 +51,6 @@ const userSlice = createSlice({
             state.isLoading = false
             toast.error(payload)
         },
-    },
-    extraReducers: {
         [loginUser.pending]: (state) => {
             state.isLoading = true
         },
