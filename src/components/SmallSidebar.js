@@ -6,6 +6,7 @@ import Logo from './Logo';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleSidebar } from '../features/user/userSlice';
 import links from '../utils/links';
+import NavLinks from './NavLinks';
 
 
 const SmallSidebar = () => {
@@ -27,25 +28,7 @@ const SmallSidebar = () => {
           <header>
             <Logo />
           </header>
-          <div className='nav-links'>
-            {
-              links.map((link) => {
-                const { text, path, id, icon } = link
-                return <NavLink
-                  to={path}
-                  className={({ isActive }) => {
-                    return isActive ? 'nav-link active' : 'nav-link'
-                  }}
-                  key={id}
-                  onClick={toggle}
-                >
-                  <span className='icon'>{icon}</span>
-                  {text}
-                </NavLink>
-
-              })
-            }
-          </div>
+          <NavLinks toggleSidebar={toggle}/>
         </div>
       </div>
     </Wrapper>
