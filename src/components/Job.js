@@ -4,7 +4,7 @@ import Loading from './Loading'
 const Job = () => {
   return (
     <div>
-      
+      job
     </div>
   )
 }
