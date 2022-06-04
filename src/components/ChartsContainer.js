@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import {useSelector} from 'react-redux'
 import Wrapper from '../assets/wrappers/ChartsContainer'
-import AreaChart from './AreaChart'
-import BarChart from './BarChart'
+import AreaChartComponent from './AreaChartComponent'
+import BarChartComponent from './BarChartComponent'
 
 const ChartsContainer = () => {
     const [barChart, setBarChart] = useState(true)
@@ -16,7 +16,7 @@ const ChartsContainer = () => {
               {barChart ? 'Area Chart' : 'Bar Chart'}
           </button>
 
-          { barChart ? <BarChart data={data} /> : <AreaChart data={data} /> }
+          { barChart ? <BarChartComponent data={data} /> : <AreaChartComponent data={data} /> }
 
       </Wrapper>
     
