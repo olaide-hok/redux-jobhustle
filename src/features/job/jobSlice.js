@@ -20,6 +20,7 @@ const initialState = {
 export const createJob = createAsyncThunk(
   'job/createJob',
   async (job, thunkAPI) => {
+    
     try {
       const resp = await customFetch.post('/jobs', job, {
         headers: {
