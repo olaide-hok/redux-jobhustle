@@ -1,4 +1,4 @@
-import customFetch from "../../utils/axios";
+import customFetch, { checkForUnauthorizedResponse } from "../../utils/axios";
 import { clearAllJobsState } from "../allJobs/allJobsSlice";
 import { logoutUser } from "./userSlice";
 import { clearValues } from '../job/jobSlice';
@@ -30,7 +30,7 @@ export const updateUserThunk = async (url, user, thunkAPI) => {
           thunkAPI.dispatch(logoutUser());
           return thunkAPI.rejectWithValue("Unauthorized! Logging Out ...");
         }
-        return thunkAPI.rejectWithValue(error.response.data.msg);
+        return checkForUnauthorizedResponse(error, thunkAPI)
       }
 }
 
