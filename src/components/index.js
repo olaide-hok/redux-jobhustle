@@ -8,10 +8,11 @@ import JobsContainer from "./JobsContainer";
 import SearchContainer from "./SearchContainer";
 import StatsContainer from "./StatsContainer";
 import ChartsContainer from "./ChartsContainer";
-
+import FormRowSelect from './FormRowSelect';
 export {
     Logo,
     FormRow,
+    FormRowSelect,
     Navbar,
     BigSideBar,
     SmallSidebar,
