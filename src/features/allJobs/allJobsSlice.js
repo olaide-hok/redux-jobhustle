@@ -24,7 +24,6 @@ const initialState = {
 export const getAllJobs = createAsyncThunk(
   'allJobs/getJobs', async(_, thunkAPI) => {
     let url = `/jobs`
-
     try {
       const resp = await customFetch.get(url)
       return resp.data
@@ -73,6 +72,8 @@ const allJobsSlice = createSlice({
       [getAllJobs.fulfilled]: (state, {payload}) => {
         state.isLoading = false
         state.jobs = payload.jobs
+        state.numOfPages = payload.numOfPages
+        state.totalJobs = payload.totalJobs
       },
       [getAllJobs.rejected]: (state, {payload}) => {
         state.isLoading = false
