@@ -21,15 +21,9 @@ const initialState = {
   ...initialFiltersState,
 };
 
+export const getAllJobs = createAsyncThunk("allJobs/getJobs", getAllJobsThunk );
 
-
-export const getAllJobs = createAsyncThunk(
-  "allJobs/getJobs", getAllJobsThunk 
-);
-
-export const showStats = createAsyncThunk(
-  "allJobs/showStats", showStatsThunk 
-);
+export const showStats = createAsyncThunk("allJobs/showStats", showStatsThunk );
 
 const allJobsSlice = createSlice({
   name: "allJobs",
@@ -51,6 +45,7 @@ const allJobsSlice = createSlice({
     changePage: (state, { payload }) => {
       state.page = payload;
     },
+    clearAllJobsState: (state) => initialState
   },
   extraReducers: {
     [getAllJobs.pending]: (state) => {
@@ -87,5 +82,6 @@ export const {
   handleChange,
   clearFilters,
   changePage,
+  clearAllJobsState
 } = allJobsSlice.actions;
 export default allJobsSlice.reducer;
